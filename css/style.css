@@ -1,0 +1,16 @@
+.time{
+  font-size: 88px;
+  font-weight: bold;
+}
+
+.wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.time:hover{
+  cursor: pointer;
+}
