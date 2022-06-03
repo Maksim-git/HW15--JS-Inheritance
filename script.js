@@ -18,9 +18,11 @@ Clock.prototype.clickedChengeFormat = function () {
 
 Clock.prototype.formatTime = function () {
   if (this.isClicked) {
-    this.classTime.innerHTML = new Date().toLocaleTimeString();
+    this.classTime.innerHTML =
+      "Full format: " + new Date().toLocaleTimeString();
   } else {
-    this.classTime.innerHTML = new Date().toLocaleTimeString().substring(0, 5);
+    this.classTime.innerHTML =
+      "Short Format: " + new Date().toLocaleTimeString().substring(0, 5);
   }
 };
 
@@ -33,11 +35,21 @@ FullFormatTime.prototype.constructor = FullFormatTime;
 
 const fullFormatTime = new FullFormatTime(fullTime);
 
-function ShotFormatTime(time) {
+function ShortFormatTime(time) {
   Clock.call(this, time);
 }
 
-ShotFormatTime.prototype = Object.create(Clock.prototype);
-ShotFormatTime.prototype.constructor = ShotFormatTime;
+ShortFormatTime.prototype = Object.create(Clock.prototype);
+ShortFormatTime.prototype.constructor = ShortFormatTime;
 
-const shotFormatTime = new ShotFormatTime(shortTime);
+ShortFormatTime.prototype.formatTime = function () {
+  if (this.isClicked) {
+    this.classTime.innerHTML =
+      "Full format: " + new Date().toLocaleTimeString();
+  } else {
+    this.classTime.innerHTML =
+      "Short Format: " + new Date().toLocaleTimeString().substring(0, 5);
+  }
+};
+
+const shortFormatTime = new ShortFormatTime(shortTime);
