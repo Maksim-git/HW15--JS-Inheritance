@@ -33,6 +33,16 @@ function FullFormatTime(time) {
 FullFormatTime.prototype = Object.create(Clock.prototype);
 FullFormatTime.prototype.constructor = FullFormatTime;
 
+FullFormatTime.prototype.formatTime = function () {
+  if (this.isClicked) {
+    this.classTime.innerHTML =
+      "Full format: " + new Date().toLocaleTimeString();
+  } else {
+    this.classTime.innerHTML =
+      "Short Format: " + new Date().toLocaleTimeString().substring(0, 5);
+  }
+};
+
 const fullFormatTime = new FullFormatTime(fullTime);
 
 function ShortFormatTime(time) {
