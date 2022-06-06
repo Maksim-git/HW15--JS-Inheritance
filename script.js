@@ -46,7 +46,7 @@ FullFormatTime.prototype.formatTime = function () {
 const fullFormatTime = new FullFormatTime(fullTime);
 
 function ShortFormatTime(time) {
-  Clock.call(this, time);
+  Clock.call(this, time, true);
 }
 
 ShortFormatTime.prototype = Object.create(Clock.prototype);
@@ -55,11 +55,13 @@ ShortFormatTime.prototype.constructor = ShortFormatTime;
 ShortFormatTime.prototype.formatTime = function () {
   if (this.isClicked) {
     this.classTime.innerHTML =
-      "Full format: " + new Date().toLocaleTimeString();
+      "Short Format: " + new Date().toLocaleTimeString().substring(0, 5);
   } else {
     this.classTime.innerHTML =
-      "Short Format: " + new Date().toLocaleTimeString().substring(0, 5);
+      "Full format: " + new Date().toLocaleTimeString();
   }
 };
 
 const shortFormatTime = new ShortFormatTime(shortTime);
+
+console.log(new Date().toLocaleTimeString());
